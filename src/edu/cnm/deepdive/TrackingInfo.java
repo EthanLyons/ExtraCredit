@@ -4,17 +4,16 @@ import java.util.Date;
 
 public class TrackingInfo {
 
-  private Date recorded;
-
-  private String details;
+  private final Date recorded ;
+  private final String details;
 
   public TrackingInfo(Date recorded, String details) {
-    this.recorded = recorded;
     this.details = details;
+    this.recorded = (Date) recorded.clone();
   }
 
   public Date getRecorded() {
-    return recorded;
+    return (Date) recorded.clone();
   }
 
   public String getDetails() {

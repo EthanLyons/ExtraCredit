@@ -1,33 +1,32 @@
+/*
 package edu.cnm.deepdive;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Shipment {
 
-  private Date initiation;
+  private final Date initiation;
+  private final List<TrackingInfo> tracking;
 
-  private List<TrackingInfo> tracking;
-
-  public Shipment(Date initiation, List<TrackingInfo> tracking) {
-    this.initiation = initiation;
-    this.tracking = tracking;
+  public Shipment() {
+    initiation = new Date();
+    tracking = new LinkedList<>();
   }
 
   public Date getInitiation() {
-    return initiation;
-  }
-
-  public void setInitiation(Date initiation) {
-    this.initiation = initiation;
+    return (Date) initiation.clone();
   }
 
   public List<TrackingInfo> getTracking() {
-    return tracking;
+   // return new LinkedList<>(tracking);
+    return Collections.unmodifiableList(tracking);
   }
 
-  public void addTracking(List<TrackingInfo> info) {
-
+  public void addTracking(TrackingInfo, info) {
+      tracking.add(info);
   }
 
-}
+}*/
